@@ -20,4 +20,13 @@ function App() {
   );
 }
 
+function reportIssue() {
+  // floating button on bottom right
+}
+
+function contact() {
+  // form, email, contact, whatsapp QR
+  // floating button on bottom right
+}
+
 export default App;

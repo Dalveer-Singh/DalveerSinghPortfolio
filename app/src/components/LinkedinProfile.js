@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import bgImage from "../assets/images/bgImage.jpg";
 import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
-import Actions from "./LinkedinProfileAction";
 
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
 
+import Actions from "./LinkedinProfileAction";
 const funMenuClick = new Actions().menuSelected;
 
 const LinkedInPostEmbed = () => {
@@ -15,16 +15,7 @@ const LinkedInPostEmbed = () => {
       <div className="border-wrapper leftAlign">
         <Photo />
         <PersonalInfo />
-
-        <div className="menu">
-          {/* <p>// options</p> */}
-          <button onClick={funMenuClick}>About</button>
-          <button onClick={funMenuClick}>Career</button>
-          <button onClick={funMenuClick}>Education</button>
-          <button onClick={funMenuClick}> ongoing</button>
-          <button onClick={funMenuClick}> ongoing</button>
-        </div>
-
+        <Menu />
         <About />
         <Experience />
         <Education />
@@ -37,9 +28,31 @@ const LinkedInPostEmbed = () => {
 
 export default LinkedInPostEmbed;
 
+function Menu() {
+  const [visibleSections, setVisibleSections] = useState({
+    about: false,
+    career: false,
+    education: false,
+    ongoing: false,
+    ongoing2: false,
+  });
+
+  return (
+    <div className="menu">
+      {/* <p>// options</p> */}
+      <button onClick={funMenuClick} sectionRef="aboutSection">
+        About
+      </button>
+      <button onClick={funMenuClick}>Career</button>
+      <button onClick={funMenuClick}>Education</button>
+      <button onClick={funMenuClick}> ongoing</button>
+      <button onClick={funMenuClick}> ongoing</button>
+    </div>
+  );
+}
 function Photo() {
   return (
-    <>
+    <div id="photoSection">
       {/* <img src={bgImage} alt="Background Image" className="bgImage" /> */}
       <Row>
         <Col>
@@ -50,7 +63,7 @@ function Photo() {
           </div>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }
 
@@ -62,7 +75,7 @@ function PersonalInfo() {
       </Row>
       Full Stack Backend Developer | Java Software Developer | Software Engineer. <br />
       📍Ontario, Canada <br />
-      Tasks List:
+      <u> Tasks List:</u>
       <ul>
         <li>Create different columns for each menu</li>
         <li>Add links to my profiles</li>
@@ -74,6 +87,10 @@ function PersonalInfo() {
         </li>
         <li>Education: add certification galary and links</li>
         <li>Add projects tab</li>
+        <li>Add floating Report issue btn</li>
+        <li>Add floating contactMe btn</li>
+        <li>Add basic theams</li>
+        <li>Add different CSS (decoupled), to switch styles on fly</li>
       </ul>
       <hr />
     </div>
@@ -82,7 +99,7 @@ function PersonalInfo() {
 
 function About() {
   return (
-    <div>
+    <div id="aboutSection">
       <h1>About</h1>
       <p>
         ☑️Master Degree in Computer Applications <br />

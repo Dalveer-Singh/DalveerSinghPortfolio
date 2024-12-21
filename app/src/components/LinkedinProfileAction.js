@@ -12,5 +12,6 @@ export default class Actions {
     if (e != null && e.target != null && e.target.classList != null) {
       e.target.classList.add("selected");
     }
+    console.log(e.target.props.first);
   };
 }
