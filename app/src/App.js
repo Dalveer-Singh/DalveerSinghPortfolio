@@ -1,22 +1,20 @@
-import logo from './assets/images/logo.svg';
-import './App.css';
+import logo from "./assets/images/logo.svg";
+import "./App.css";
+import LinkedInProfileBadge from "./components/LinkedinProfile";
+import "./components/style/banner.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React !!!!!
-        </a>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+
+        {/* Full-width WIP Banner */}
+        <div className="wip-banner">
+          <p>🚧 Work in Progress 🚧</p>
+        </div>
+
+        <LinkedInProfileBadge />
       </header>
     </div>
   );
