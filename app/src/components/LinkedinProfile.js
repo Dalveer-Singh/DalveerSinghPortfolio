@@ -2,9 +2,12 @@ import React from "react";
 import bgImage from "../assets/images/bgImage.jpg";
 import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
+import Actions from "./LinkedinProfileAction";
 
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
+
+const funMenuClick = new Actions().menuSelected;
 
 const LinkedInPostEmbed = () => {
   return (
@@ -15,11 +18,11 @@ const LinkedInPostEmbed = () => {
 
         <div className="menu">
           {/* <p>// options</p> */}
-          <button>About</button>
-          <button>Career</button>
-          <button className="selected">Education</button>
-          <button>ongoing</button>
-          <button>ongoing</button>
+          <button onClick={funMenuClick}>About</button>
+          <button onClick={funMenuClick}>Career</button>
+          <button onClick={funMenuClick}>Education</button>
+          <button onClick={funMenuClick}> ongoing</button>
+          <button onClick={funMenuClick}> ongoing</button>
         </div>
 
         <About />
@@ -59,7 +62,19 @@ function PersonalInfo() {
       </Row>
       Full Stack Backend Developer | Java Software Developer | Software Engineer. <br />
       📍Ontario, Canada <br />
-      <li>links to my profiles</li>
+      Tasks List:
+      <ul>
+        <li>Create different columns for each menu</li>
+        <li>Add links to my profiles</li>
+        <li>
+          Make UI simple/ inttractive
+          <ul>
+            <li>add illustrations of career , gap, switch</li>
+          </ul>
+        </li>
+        <li>Education: add certification galary and links</li>
+        <li>Add projects tab</li>
+      </ul>
       <hr />
     </div>
   );
