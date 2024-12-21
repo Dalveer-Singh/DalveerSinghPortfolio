@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import bgImage from "../assets/images/bgImage.jpg";
 import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
@@ -6,16 +6,25 @@ import "./style/LinkedinProfile.css";
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
 
-import Actions from "./LinkedinProfileAction";
-const funMenuClick = new Actions().menuSelected;
+// import Actions from "./LinkedinProfileAction";
+// const funMenuClick = new Actions().menuSelected;
 
-const LinkedInPostEmbed = () => {
+const ProfileApp = () => {
+  const [visibleSection, setVisibleSection] = useState({
+    about: false,
+    career: false,
+    education: false,
+    ongoing: false,
+    ongoing2: false,
+  });
   return (
     <Container /* for bootStrap */>
       <div className="border-wrapper leftAlign">
         <Photo />
         <PersonalInfo />
         <Menu />
+
+        {visibleSection.about && <About />}
         <About />
         <Experience />
         <Education />
@@ -26,16 +35,16 @@ const LinkedInPostEmbed = () => {
   );
 };
 
-export default LinkedInPostEmbed;
+export default ProfileApp;
 
 function Menu() {
-  const [visibleSections, setVisibleSections] = useState({
-    about: false,
-    career: false,
-    education: false,
-    ongoing: false,
-    ongoing2: false,
-  });
+  // const [visibleSections, setVisibleSections] = useState({
+  //   about: false,
+  //   career: false,
+  //   education: false,
+  //   ongoing: false,
+  //   ongoing2: false,
+  // });
 
   return (
     <div className="menu">
@@ -43,8 +52,12 @@ function Menu() {
       <button onClick={funMenuClick} sectionRef="aboutSection">
         About
       </button>
-      <button onClick={funMenuClick}>Career</button>
-      <button onClick={funMenuClick}>Education</button>
+      <button onClick={funMenuClick} sectionRef="careerSection">
+        Career
+      </button>
+      <button onClick={funMenuClick} sectionRef="eduSection">
+        Education
+      </button>
       <button onClick={funMenuClick}> ongoing</button>
       <button onClick={funMenuClick}> ongoing</button>
     </div>
@@ -237,4 +250,32 @@ function Recommendations() {
       <hr />
     </div>
   );
+}
+
+// Action
+function funMenuClick(e) {
+  // STEP diss-asign class from all
+  const menuBtns = document.querySelectorAll(`.menu button`);
+
+  // Loop through the NodeList and remove the class from each element
+  menuBtns.forEach((element) => {
+    element.classList.remove("selected");
+  });
+
+  // STEP assign class.
+  if (e != null && e.target != null && e.target.classList != null) {
+    e.target.classList.add("selected");
+  }
+
+  // STEP Show respective section
+  if (
+    e != null &&
+    e.target != null &&
+    e.target.attributes.sectionref != null &&
+    e.target.attributes.sectionref.value != null
+  ) {
+    console.log(e.target.attributes.sectionref.value);
+    // console.log(typeof ProfileApp().visibleSection);
+    // ToggleSection(e.target.attributes.sectionref.value);
+  }
 }
