@@ -10,34 +10,14 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 // const funMenuClick = new Actions().menuSelected;
 
 const ProfileApp = () => {
-  const [visibleSection, setVisibleSection] = useState({
-    about: false,
-    career: false,
-    education: false,
-    ongoing: false,
-    ongoing2: false,
-  });
-
-  const aboutRef = useRef(null);
-  const servicesRef = useRef(null);
-  const contactRef = useRef(null);
-
-  const toggleVisibility = (ref) => {
-    if (ref.current) {
-      ref.current.style.display = ref.current.style.display === "none" ? "block" : "none";
-    }
-  };
-
-  // setVisibleSection("about", false);
-
   return (
     <Container /* for bootStrap */>
       <div className="border-wrapper leftAlign">
         <Photo />
         <PersonalInfo />
-        <Menu toggleVisibility={toggleVisibility} aboutRef={aboutRef} />
+        <Menu />
 
-        {aboutRef && <About />}
+        {/* {aboutRef && <About />} */}
         {/* {visibleSection.about && <About />} */}
         <About />
         <Experience />
@@ -51,13 +31,13 @@ const ProfileApp = () => {
 
 export default ProfileApp;
 
-const Menu = (toggleVisibility, aboutRef) => {
+const Menu = () => {
   return (
     <div className="menu">
       {/* <p>// options</p> */}
       <button
-        onClick={() => toggleVisibility(aboutRef)}
-        // onClick={funMenuClick}
+        // onClick={() => toggleVisibility(aboutRef)}
+        onClick={funMenuClick}
         sectionRef="aboutSection"
       >
         About
@@ -95,23 +75,24 @@ const Menu = (toggleVisibility, aboutRef) => {
       e.target.attributes.sectionref.value != null
     ) {
       var clickedSection = e.target.attributes.sectionref.value;
-      // console.log(clickedSection);
-      // console.log(visibleSection);
-      // console.log(setVisibleSection);
-      // handleReset();
+      if (document.getElementById(clickedSection) != null) {
+        // hide all sections
+        const allSection = document.querySelectorAll(`.section`);
+        allSection.forEach((element) => {
+          element.style.height = "0";
+          // element.style.display = "none";
+          element.style.transform = "scaleY(0)";
+        });
+        // show selected section
+        // document.getElementById(clickedSection).style.display = "";
+        document.getElementById(clickedSection).style.height = "fit-content";
+        document.getElementById(clickedSection).style.transform = "scaleY(1)";
+
+        // scroll down
+        e.target.scrollIntoView({ behavior: "smooth" });
+      }
     }
   }
-
-  // function handleReset() {
-  //   const resetState = Object.keys(visibleSection).reduce((acc, key) => {
-  //     // console.log(key);
-  //     // console.log(acc[key]);
-  //     acc[key] = false;
-  //     setVisibleSection[key] = false;
-  //     return acc;
-  //   }, {});
-  //   // setState(resetState);
-  // }
 };
 function Photo() {
   return (
@@ -154,6 +135,10 @@ function PersonalInfo() {
         <li>Add floating contactMe btn</li>
         <li>Add basic theams</li>
         <li>Add different CSS (decoupled), to switch styles on fly</li>
+        <li>arrows to switch b/w sections</li>
+        <li>keyboaord btns to swith b/w sections</li>
+        <li>Make sections of similar sizes</li>
+        <li> - for short sections - similar voide space</li>
       </ul>
       <hr />
     </div>
@@ -162,7 +147,7 @@ function PersonalInfo() {
 
 function About() {
   return (
-    <div id="aboutSection">
+    <div id="aboutSection" className="section">
       <h1>About</h1>
       <p>
         ☑️Master Degree in Computer Applications <br />
@@ -196,7 +181,7 @@ function Experience() {
   ];
 
   return (
-    <div className="experience-container">
+    <div className="experience-container section" id="careerSection">
       {experiences.map((exp, index) => (
         <div key={index}>
           <td>
@@ -234,7 +219,7 @@ function Education() {
   ];
 
   return (
-    <div>
+    <div className="section" id="eduSection">
       <h1>Education</h1>
       {education.map((edu, index) => (
         <div key={index}>
@@ -282,7 +267,7 @@ function Recommendations() {
   ];
 
   return (
-    <div>
+    <div className="section" id="recommendationSection">
       <h1>Recommendations</h1>
       {recommendations.map((rec, index) => (
         <div key={index} className="recommendation-card">

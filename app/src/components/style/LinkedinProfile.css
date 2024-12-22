@@ -1,5 +1,6 @@
 * {
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
+  animation: all 0.2s ease-in-out;
 }
 
 .border-wrapper {
@@ -54,9 +55,17 @@
   opacity: 0.5;
 }
 
+.section {
+  overflow: hidden;
+  transform-origin: top;
+  transition: transform 0.26s ease;
+  height: 0;
+}
+
 .menu {
   border: 1px solid red;
   animation: slideDown 0.5s ease-out forwards; /* Animate from 0 to full height */
+  margin-bottom: 14px;
 
   display: grid;
   grid-auto-flow: column;
