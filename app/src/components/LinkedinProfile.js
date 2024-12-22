@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useRef } from "react";
 import bgImage from "../assets/images/bgImage.jpg";
 import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
@@ -17,14 +17,28 @@ const ProfileApp = () => {
     ongoing: false,
     ongoing2: false,
   });
+
+  const aboutRef = useRef(null);
+  const servicesRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const toggleVisibility = (ref) => {
+    if (ref.current) {
+      ref.current.style.display = ref.current.style.display === "none" ? "block" : "none";
+    }
+  };
+
+  // setVisibleSection("about", false);
+
   return (
     <Container /* for bootStrap */>
       <div className="border-wrapper leftAlign">
         <Photo />
         <PersonalInfo />
-        <Menu />
+        <Menu toggleVisibility={toggleVisibility} aboutRef={aboutRef} />
 
-        {visibleSection.about && <About />}
+        {aboutRef && <About />}
+        {/* {visibleSection.about && <About />} */}
         <About />
         <Experience />
         <Education />
@@ -37,19 +51,15 @@ const ProfileApp = () => {
 
 export default ProfileApp;
 
-function Menu() {
-  // const [visibleSections, setVisibleSections] = useState({
-  //   about: false,
-  //   career: false,
-  //   education: false,
-  //   ongoing: false,
-  //   ongoing2: false,
-  // });
-
+const Menu = (toggleVisibility, aboutRef) => {
   return (
     <div className="menu">
       {/* <p>// options</p> */}
-      <button onClick={funMenuClick} sectionRef="aboutSection">
+      <button
+        onClick={() => toggleVisibility(aboutRef)}
+        // onClick={funMenuClick}
+        sectionRef="aboutSection"
+      >
         About
       </button>
       <button onClick={funMenuClick} sectionRef="careerSection">
@@ -62,7 +72,47 @@ function Menu() {
       <button onClick={funMenuClick}> ongoing</button>
     </div>
   );
-}
+
+  function funMenuClick(e) {
+    // STEP diss-asign class from all
+    const menuBtns = document.querySelectorAll(`.menu button`);
+
+    // Loop through the NodeList and remove the class from each element
+    menuBtns.forEach((element) => {
+      element.classList.remove("selected");
+    });
+
+    // STEP assign class.
+    if (e != null && e.target != null && e.target.classList != null) {
+      e.target.classList.add("selected");
+    }
+
+    // STEP Show respective section
+    if (
+      e != null &&
+      e.target != null &&
+      e.target.attributes.sectionref != null &&
+      e.target.attributes.sectionref.value != null
+    ) {
+      var clickedSection = e.target.attributes.sectionref.value;
+      // console.log(clickedSection);
+      // console.log(visibleSection);
+      // console.log(setVisibleSection);
+      // handleReset();
+    }
+  }
+
+  // function handleReset() {
+  //   const resetState = Object.keys(visibleSection).reduce((acc, key) => {
+  //     // console.log(key);
+  //     // console.log(acc[key]);
+  //     acc[key] = false;
+  //     setVisibleSection[key] = false;
+  //     return acc;
+  //   }, {});
+  //   // setState(resetState);
+  // }
+};
 function Photo() {
   return (
     <div id="photoSection">
@@ -250,32 +300,4 @@ function Recommendations() {
       <hr />
     </div>
   );
-}
-
-// Action
-function funMenuClick(e) {
-  // STEP diss-asign class from all
-  const menuBtns = document.querySelectorAll(`.menu button`);
-
-  // Loop through the NodeList and remove the class from each element
-  menuBtns.forEach((element) => {
-    element.classList.remove("selected");
-  });
-
-  // STEP assign class.
-  if (e != null && e.target != null && e.target.classList != null) {
-    e.target.classList.add("selected");
-  }
-
-  // STEP Show respective section
-  if (
-    e != null &&
-    e.target != null &&
-    e.target.attributes.sectionref != null &&
-    e.target.attributes.sectionref.value != null
-  ) {
-    console.log(e.target.attributes.sectionref.value);
-    // console.log(typeof ProfileApp().visibleSection);
-    // ToggleSection(e.target.attributes.sectionref.value);
-  }
 }
