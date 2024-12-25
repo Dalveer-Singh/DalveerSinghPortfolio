@@ -3,7 +3,7 @@ Portfolio for Dalveer Singh hosted at https://dalveer-singh.github.io/DalveerSin
 
 ## Tasks List:
 - [x] Create different columns for each menu
-- [ ] Add links to my profiles
+- [x] Add links to my profiles
 - [ ] Make UI simple/ inttractive
 - [ ] - add illustrations of career , gap, switch
 - [ ] Education: add certification galary and links
