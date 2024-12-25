@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useRef } from "react";
 import bgImage from "../assets/images/bgImage.jpg";
 import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
+import linkedinLogo from "./../assets/images/linkedin.png";
+import gitLogo from "./../assets/images/github.png";
 
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
@@ -155,6 +157,17 @@ function About() {
         ☑️Worked with Cloud-based systems, and developed new applications <br />
         ✅Great interpersonal skills <br />
       </p>
+      <br />
+      <h2>Contact</h2>
+      <div className="contactGrid">
+        <a href="https://github.com/Dalveer-Singh" target="_blank">
+          <img src={gitLogo} alt="Git Hub" />
+        </a>
+        <a href="https://www.linkedin.com/in/singhdalveer" target="_blank">
+          <img src={linkedinLogo} alt="Linked In" />
+        </a>
+      </div>
+
       <hr />
     </div>
   );
