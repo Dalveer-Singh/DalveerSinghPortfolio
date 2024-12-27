@@ -63,12 +63,13 @@
 }
 
 .menu {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   animation: slideDown 0.2s ease-out forwards; /* Animate from 0 to full height */
   margin-bottom: 14px;
 
   display: grid;
   grid-auto-flow: column;
+  grid-template-columns: repeat(5, 18%);
   gap: 10px;
 
   button {

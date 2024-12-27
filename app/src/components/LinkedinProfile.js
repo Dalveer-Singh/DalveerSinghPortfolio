@@ -24,7 +24,7 @@ const ProfileApp = () => {
         <About />
         <Experience />
         <Education />
-        <li>Skills [Still Pending]</li>
+        <Skills />
         <Recommendations />
       </div>
     </Container>
@@ -45,12 +45,14 @@ const Menu = () => {
         About
       </button>
       <button onClick={funMenuClick} sectionRef="careerSection">
-        Career
+        Experience
       </button>
       <button onClick={funMenuClick} sectionRef="eduSection">
         Education
       </button>
-      <button onClick={funMenuClick}> ongoing</button>
+      <button onClick={funMenuClick} sectionRef="skillSection">
+        Skills
+      </button>
       <button onClick={funMenuClick}> ongoing</button>
     </div>
   );
@@ -123,24 +125,22 @@ function PersonalInfo() {
       📍Ontario, Canada <br />
       <u> Tasks List:</u>
       <ul>
-        <li>Create different columns for each menu</li>
-        <li>Add links to my profiles</li>
-        <li>
-          Make UI simple/ inttractive
-          <ul>
-            <li>add illustrations of career , gap, switch</li>
-          </ul>
-        </li>
         <li>Education: add certification galary and links</li>
+        <li>add illustrations/images of career , gap, switch</li>
         <li>Add projects tab</li>
         <li>Add floating Report issue btn</li>
-        <li>Add floating contactMe btn</li>
+        <li>
+          Add floating contactMe btn <br /> - form, links, email/ phone option
+        </li>
         <li>Add basic theams</li>
+        <li>
+          Make sections of similar sizes <br /> - for short sections - similar voide space
+        </li>
+        <li>| Good to have |</li>
         <li>Add different CSS (decoupled), to switch styles on fly</li>
+        <li>Make UI simple/ inttractive </li>
         <li>arrows to switch b/w sections</li>
         <li>keyboaord btns to swith b/w sections</li>
-        <li>Make sections of similar sizes</li>
-        <li> - for short sections - similar voide space</li>
       </ul>
       <hr />
     </div>
@@ -247,6 +247,26 @@ function Education() {
         </div>
       ))}
       <hr />
+    </div>
+  );
+}
+
+function Skills() {
+  return (
+    <div className="section" id="skillSection">
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
+      <li>Skills [Still Pending]</li>
     </div>
   );
 }
