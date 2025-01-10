@@ -9,7 +9,7 @@ Portfolio for Dalveer Singh hosted at https://dalveer-singh.github.io/DalveerSin
 - [ ] Education: add certification galary and links
 - [ ] Add projects tab
 - [ ] Add floating Report issue btn
-- [ ] Add floating contactMe btn
+- [ ] Add floating contactMe btn -  - form, links, email/ phone option
 - [ ] Add basic theams
 - [ ] Add different CSS (decoupled), to switch styles on fly
 - [ ] arrows to switch b/w sections
