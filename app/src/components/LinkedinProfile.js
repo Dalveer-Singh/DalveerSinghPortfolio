@@ -121,27 +121,9 @@ function PersonalInfo() {
       <Row>
         <h1>Dalveer Singh</h1>
       </Row>
-      Full Stack Backend Developer | Java Software Developer | Software Engineer. <br />
+      Full Stack Backend Developer | Java Software Developer | Software Engineer.
+      <br />
       📍Ontario, Canada <br />
-      <u> Tasks List:</u>
-      <ul>
-        <li>Education: add certification galary and links</li>
-        <li>add illustrations/images of career , gap, switch</li>
-        <li>Add projects tab</li>
-        <li>Add floating Report issue btn</li>
-        <li>
-          Add floating contactMe btn <br /> - form, links, email/ phone option
-        </li>
-        <li>Add basic theams</li>
-        <li>
-          Make sections of similar sizes <br /> - for short sections - similar voide space
-        </li>
-        <li>| Good to have |</li>
-        <li>Add different CSS (decoupled), to switch styles on fly</li>
-        <li>Make UI simple/ inttractive </li>
-        <li>arrows to switch b/w sections</li>
-        <li>keyboaord btns to swith b/w sections</li>
-      </ul>
       <hr />
     </div>
   );
