@@ -119,11 +119,12 @@ function PersonalInfo() {
   return (
     <div>
       <Row>
-        <h1>Dalveer Singh</h1>
+        <h1>Dalveer Singh.</h1>
       </Row>
       Full Stack Backend Developer | Java Software Developer | Software Engineer.
       <br />
-      📍Ontario, Canada <br />
+      📍Ontario, Canada
+      <br />
       <hr />
     </div>
   );
