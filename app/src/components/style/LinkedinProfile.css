@@ -86,6 +86,49 @@
   }
 }
 
+.menu_material {
+  /* border: 1px solid red; */
+  animation: slideDown 0.2s ease-out forwards; /* Animate from 0 to full height */
+
+  display: flex;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(5, 18%);
+  gap: 10px;
+
+  position: fixed;
+  bottom: 10px;
+  z-index: 99;
+  button {
+    transition: all 0.2s ease;
+    color: #fff;
+    display: flex;
+
+    background-color: #0097a7;
+    /* padding: 10px; */
+    vertical-align: top;
+
+    border-radius: 50%;
+    /* overflow: hidden; */
+    width: 70px;
+    height: 70px;
+  }
+
+  button.selected {
+    background-color: aqua;
+    border-radius: 30px;
+    width: unset;
+  }
+
+  img {
+    /* width: -webkit-fill-available; */
+    width: 60px;
+  }
+
+  #info {
+    background: url("../../assets/images/icons/info.svg");
+  }
+}
+
 @keyframes slideDown {
   from {
     transform: translateY(-100%);

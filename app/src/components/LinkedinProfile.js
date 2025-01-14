@@ -4,6 +4,7 @@ import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
 import linkedinLogo from "./../assets/images/linkedin.png";
 import gitLogo from "./../assets/images/github.png";
+import infoIcon from "./../assets/images/icons/info.svg";
 
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
@@ -35,13 +36,10 @@ export default ProfileApp;
 
 const Menu = () => {
   return (
-    <div className="menu">
+    <div className="menu_material">
       {/* <p>// options</p> */}
-      <button
-        // onClick={() => toggleVisibility(aboutRef)}
-        onClick={funMenuClick}
-        sectionRef="aboutSection"
-      >
+      <button onClick={funMenuClick} sectionRef="aboutSection" id="info">
+        {/* <img src={infoIcon} alt="" /> */}
         About
       </button>
       <button onClick={funMenuClick} sectionRef="careerSection">
@@ -53,13 +51,17 @@ const Menu = () => {
       <button onClick={funMenuClick} sectionRef="skillSection">
         Skills
       </button>
-      <button onClick={funMenuClick}> ongoing</button>
+      <button onClick={funMenuClick}>
+        <img src={infoIcon} alt="" />
+        ongoing
+      </button>
     </div>
   );
 
   function funMenuClick(e) {
     // STEP diss-asign class from all
-    const menuBtns = document.querySelectorAll(`.menu button`);
+    // const menuBtns = document.querySelectorAll(`.menu button`);
+    const menuBtns = document.querySelectorAll(`.menu_material button`);
 
     // Loop through the NodeList and remove the class from each element
     menuBtns.forEach((element) => {
