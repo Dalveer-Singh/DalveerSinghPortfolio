@@ -4,7 +4,6 @@ import actorImage from "../assets/images/actor.jpg";
 import "./style/LinkedinProfile.css";
 import linkedinLogo from "./../assets/images/linkedin.png";
 import gitLogo from "./../assets/images/github.png";
-import infoIcon from "./../assets/images/icons/info.svg";
 
 // bootstrap style
 import { Button, Container, Row, Col } from "react-bootstrap";
@@ -35,26 +34,38 @@ const ProfileApp = () => {
 export default ProfileApp;
 
 const Menu = () => {
+  const Btn = ({ heading }) => {
+    return (
+      <button
+        onClick={funMenuClick}
+        sectionRef={`${heading.replace(/\s+/g, "").toLowerCase()}Section`}
+        id={heading.replace(/\s+/g, "").toLowerCase()} // removing spaces and changing to lowerCase
+      >
+        <span>{heading}</span>
+      </button>
+    );
+  };
+
   return (
     <div className="menu_material">
       {/* <p>// options</p> */}
       <button onClick={funMenuClick} sectionRef="aboutSection" id="info">
         {/* <img src={infoIcon} alt="" /> */}
-        About
+        <span>About</span>
       </button>
-      <button onClick={funMenuClick} sectionRef="careerSection">
-        Experience
+      <button onClick={funMenuClick} sectionRef="careerSection" id="experience">
+        <span>Experience</span>
       </button>
       <button onClick={funMenuClick} sectionRef="eduSection">
-        Education
+        <span> Education</span>
       </button>
       <button onClick={funMenuClick} sectionRef="skillSection">
-        Skills
+        <span> Skills</span>
       </button>
       <button onClick={funMenuClick}>
-        <img src={infoIcon} alt="" />
-        ongoing
+        <span> ongoing</span>
       </button>
+      <Btn heading="About" />
     </div>
   );
 

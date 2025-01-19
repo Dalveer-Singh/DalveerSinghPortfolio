@@ -103,7 +103,7 @@
     color: #fff;
     display: flex;
 
-    background-color: #0097a7;
+    background-color: #0097a7 !important;
     /* padding: 10px; */
     vertical-align: top;
 
@@ -111,21 +111,33 @@
     /* overflow: hidden; */
     width: 70px;
     height: 70px;
+
+    span {
+      display: none;
+    }
   }
 
+  button:hover,
   button.selected {
-    background-color: aqua;
+    background: unset !important;
+    background-color: aqua !important;
     border-radius: 30px;
     width: unset;
+    span {
+      display: inline;
+      /* display: list-item; */
+    }
   }
 
-  img {
-    /* width: -webkit-fill-available; */
-    width: 60px;
-  }
-
+  /* Icons */
   #info {
     background: url("../../assets/images/icons/info.svg");
+    background-size: cover;
+  }
+
+  #experience {
+    background: url("../../assets/images/icons/expertise.svg");
+    background-size: cover;
   }
 }
 
