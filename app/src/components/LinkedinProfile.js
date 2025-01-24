@@ -10,6 +10,11 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 
 // import Actions from "./LinkedinProfileAction";
 // const funMenuClick = new Actions().menuSelected;
+const menuHeading_experience = "experience";
+const menuHeading_info = "info";
+const menuHeading_education = "education";
+const menuHeading_skills = "Skills";
+const menuHeading_recommendations = "recommendations";
 
 const ProfileApp = () => {
   return (
@@ -37,80 +42,97 @@ const Menu = () => {
   const Btn = ({ heading }) => {
     return (
       <button
-        onClick={funMenuClick}
+        onClick={() => funMenuClick2(heading.replace(/\s+/g, "").toLowerCase() + "Section")}
+        // onClick={() => funMenuClick2({heading.replace(/\s+/g, "").toLowerCase()}+"Section")}
+        // onClick={funMenuClick}
         sectionRef={`${heading.replace(/\s+/g, "").toLowerCase()}Section`}
-        id={heading.replace(/\s+/g, "").toLowerCase()} // removing spaces and changing to lowerCase
+        className={`icon_${heading.replace(/\s+/g, "").toLowerCase()}`} // id used to assign icons // removing spaces and changing to lowerCase
       >
-        <span>{heading}</span>
+        <span>{heading.charAt(0).toUpperCase() + heading.slice(1)}</span>
       </button>
     );
   };
 
   return (
     <div className="menu_material">
-      {/* <p>// options</p> */}
-      <button onClick={funMenuClick} sectionRef="aboutSection" id="info">
-        {/* <img src={infoIcon} alt="" /> */}
-        <span>About</span>
-      </button>
-      <button onClick={funMenuClick} sectionRef="careerSection" id="experience">
-        <span>Experience</span>
-      </button>
-      <button onClick={funMenuClick} sectionRef="eduSection">
-        <span> Education</span>
-      </button>
-      <button onClick={funMenuClick} sectionRef="skillSection">
-        <span> Skills</span>
-      </button>
-      <button onClick={funMenuClick}>
-        <span> ongoing</span>
-      </button>
-      <Btn heading="About" />
+      <Btn heading={menuHeading_info} />
+      <Btn heading={menuHeading_experience} />
+      <Btn heading={menuHeading_education} />
+      <Btn heading={menuHeading_skills} />
+      <Btn heading={menuHeading_recommendations} />
     </div>
   );
 
-  function funMenuClick(e) {
-    // STEP diss-asign class from all
-    // const menuBtns = document.querySelectorAll(`.menu button`);
-    const menuBtns = document.querySelectorAll(`.menu_material button`);
-
-    // Loop through the NodeList and remove the class from each element
-    menuBtns.forEach((element) => {
-      element.classList.remove("selected");
+  function funMenuClick2(heading) {
+    // ** Section **
+    // STEP hide all sections
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => {
+      section.classList.remove("selected");
     });
 
-    // STEP assign class.
-    if (e != null && e.target != null && e.target.classList != null) {
-      e.target.classList.add("selected");
-    }
+    // STEP sow correct section
+    document.getElementById(heading).classList.add("selected");
 
-    // STEP Show respective section
-    if (
-      e != null &&
-      e.target != null &&
-      e.target.attributes.sectionref != null &&
-      e.target.attributes.sectionref.value != null
-    ) {
-      var clickedSection = e.target.attributes.sectionref.value;
-      if (document.getElementById(clickedSection) != null) {
-        // hide all sections
-        const allSection = document.querySelectorAll(`.section`);
-        allSection.forEach((element) => {
-          element.style.height = "0";
-          // element.style.display = "none";
-          element.style.transform = "scaleY(0)";
-        });
-        // show selected section
-        // document.getElementById(clickedSection).style.display = "";
-        document.getElementById(clickedSection).style.height = "fit-content";
-        document.getElementById(clickedSection).style.transform = "scaleY(1)";
+    // ** Menu Btn **
+    // STEP remove selected from all btns
+    const menuBtns = document.querySelectorAll(".menu_material button");
+    menuBtns.forEach((menuBtn) => {
+      menuBtn.classList.remove("selected");
+    });
 
-        // scroll down
-        e.target.scrollIntoView({ behavior: "smooth" });
-      }
+    // STEP sow correct Btn
+    const menuBtn = document.querySelector(`[sectionRef=${heading}]`);
+    // const menuBtn = document.querySelector("[sectionRef=" + { heading } + "]");
+    if (menuBtn) {
+      menuBtn.classList.add("selected");
+      // menuBtn.style.transform = "scaleY(1)"; // Ensure it's fully scaled
     }
   }
+  //   function funMenuClick(e) {
+  //     console.log("clicked menu btn");
+  //     // STEP diss-asign class from all
+  //     // const menuBtns = document.querySelectorAll(`.menu button`);
+  //     const menuBtns = document.querySelectorAll(`.menu_material button`);
+
+  //     // Loop through the NodeList and remove the class from each element
+  //     menuBtns.forEach((element) => {
+  //       element.classList.remove("selected");
+  //     });
+
+  //     // STEP assign class.
+  //     if (e != null && e.target != null && e.target.classList != null) {
+  //       e.target.classList.add("selected");
+  //     }
+
+  //     // STEP Show respective section
+  //     if (
+  //       e != null &&
+  //       e.target != null &&
+  //       e.target.attributes.sectionref != null &&
+  //       e.target.attributes.sectionref.value != null
+  //     ) {
+  //       var clickedSection = e.target.attributes.sectionref.value;
+  //       if (document.getElementById(clickedSection) != null) {
+  //         // hide all sections
+  //         const allSection = document.querySelectorAll(`.section`);
+  //         allSection.forEach((element) => {
+  //           element.style.height = "0";
+  //           // element.style.display = "none";
+  //           element.style.transform = "scaleY(0)";
+  //         });
+  //         // show selected section
+  //         // document.getElementById(clickedSection).style.display = "";
+  //         document.getElementById(clickedSection).style.height = "fit-content";
+  //         document.getElementById(clickedSection).style.transform = "scaleY(1)";
+
+  //         // scroll down
+  //         e.target.scrollIntoView({ behavior: "smooth" });
+  //       }
+  //     }
+  //   }
 };
+
 function Photo() {
   return (
     <div id="photoSection">
@@ -145,7 +167,7 @@ function PersonalInfo() {
 
 function About() {
   return (
-    <div id="aboutSection" className="section">
+    <div id={`${menuHeading_info.replace(/\s+/g, "").toLowerCase()}Section`} className="section">
       <h1>About</h1>
       <p>
         ☑️Master Degree in Computer Applications <br />
@@ -188,9 +210,11 @@ function Experience() {
       description: `I played a pivotal role in software development, focusing on both frontend and backend technologies. I contributed significantly to the development and testing of web applications and websites across various projects, ensuring high-quality standards and functionality through the execution of integration and unit test cases. Additionally, I led proof-of-concept initiatives, resulting in successful implementations and adoption of innovative solutions. Through the implementation of automated testing strategies, I effectively reduced testing time and post-release defects, enhancing overall project efficiency. My contributions also extended to the development of a search engine, which garnered positive feedback and adoption from numerous clients. Collaborating closely with cross-functional teams, I ensured the timely delivery of complex projects within specified timelines and budget constraints. Notably, I achieved significant improvements in search accuracy and user satisfaction through strategic enhancements, alongside resolving technical issues promptly, maintaining a remarkable record of over 200 bugs resolved without workflow disruption. Throughout my tenure, I also mentored and supervised junior developers, fostering a culture of excellence and adherence to client requirements and standards.`,
     },
   ];
-
   return (
-    <div className="experience-container section" id="careerSection">
+    <div
+      className="experience-container section"
+      id={`${menuHeading_experience.replace(/\s+/g, "").toLowerCase()}Section`}
+    >
       {experiences.map((exp, index) => (
         <div key={index}>
           <td>
@@ -228,7 +252,7 @@ function Education() {
   ];
 
   return (
-    <div className="section" id="eduSection">
+    <div className="section" id={`${menuHeading_education.replace(/\s+/g, "").toLowerCase()}Section`}>
       <h1>Education</h1>
       {education.map((edu, index) => (
         <div key={index}>
@@ -249,7 +273,7 @@ function Education() {
 
 function Skills() {
   return (
-    <div className="section" id="skillSection">
+    <div className="section" id={`${menuHeading_skills.replace(/\s+/g, "").toLowerCase()}Section`}>
       <li>Skills [Still Pending]</li>
       <li>Skills [Still Pending]</li>
       <li>Skills [Still Pending]</li>
@@ -296,7 +320,7 @@ function Recommendations() {
   ];
 
   return (
-    <div className="section" id="recommendationSection">
+    <div className="section" id={`${menuHeading_recommendations.replace(/\s+/g, "").toLowerCase()}Section`}>
       <h1>Recommendations</h1>
       {recommendations.map((rec, index) => (
         <div key={index} className="recommendation-card">
@@ -315,3 +339,14 @@ function Recommendations() {
     </div>
   );
 }
+
+const Footer = () => {
+  return (
+    <div>
+      icons used from:{" "}
+      <a href="https://www.flaticon.com/free-icons/recommended" title="recommended icons">
+        Recommended icons created by Freepik - Flaticon
+      </a>
+    </div>
+  );
+};

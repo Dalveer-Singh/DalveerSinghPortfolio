@@ -23,8 +23,8 @@
 }
 
 .actorImageContainer {
-  position: absolute;
-  top: 30%;
+  /* position: absolute;
+  top: 30%; */
   /* transform: translateY(+50%); */
   /* left: 0; */
   margin-left: 20px;
@@ -60,6 +60,12 @@
   transform-origin: top;
   transition: transform 0.26s ease;
   height: 0;
+  transform: scaleY(0);
+}
+.section.selected {
+  display: block;
+  height: fit-content;
+  transform: scaleY(1);
 }
 
 .menu {
@@ -96,7 +102,7 @@
   gap: 10px;
 
   position: fixed;
-  bottom: 10px;
+  bottom: 2vh;
   z-index: 99;
   button {
     transition: all 0.2s ease;
@@ -105,7 +111,8 @@
 
     background-color: #0097a7 !important;
     /* padding: 10px; */
-    vertical-align: top;
+    /* vertical-align: top; */
+    align-items: center;
 
     border-radius: 50%;
     /* overflow: hidden; */
@@ -123,6 +130,7 @@
     background-color: aqua !important;
     border-radius: 30px;
     width: unset;
+    padding: 24px;
     span {
       display: inline;
       /* display: list-item; */
@@ -130,14 +138,57 @@
   }
 
   /* Icons */
-  #info {
+  .icon_info {
     background: url("../../assets/images/icons/info.svg");
     background-size: cover;
+    border-color: #0097a7;
   }
 
-  #experience {
-    background: url("../../assets/images/icons/expertise.svg");
+  .icon_experience {
+    background: url("../../assets/images/icons/work_tie.svg");
     background-size: cover;
+    border-width: 3px;
+    border-color: #0097a7;
+  }
+  .icon_skills {
+    background: url("../../assets/images/icons/skills_certificate.svg");
+    background-size: cover;
+    border-width: 3px;
+    border-color: #0097a7;
+  }
+  .icon_education {
+    background: url("../../assets/images/icons/education.svg");
+    background-size: cover;
+    border-width: 3px;
+    border-color: #0097a7;
+  }
+  .icon_recommendations {
+    background: url("../../assets/images/icons/recommendations.svg");
+    background-size: cover;
+    border-width: 3px;
+    border-color: #0097a7;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bgImage {
+    background-image: unset;
+
+    .actorImageContainer {
+      margin: auto;
+    }
+  }
+
+  .menu_material {
+    gap: 3px;
+
+    button {
+      width: 40px; /* Change to desired size */
+      height: 40px; /* Change to desired size */
+    }
+    button:hover,
+    button.selected {
+      padding: revert;
+    }
   }
 }
 
