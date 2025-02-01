@@ -50,6 +50,22 @@
 .company-logo {
   height: 56px;
   width: 56px;
+  background: no-repeat;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 5px;
+}
+.icon_chitkara {
+  content: url("../../assets/images/chitkara.png");
+}
+.icon_sastra {
+  content: url("../../assets/images/Sastra.png");
+}
+.icon_TCS {
+  content: url("../../assets/images/chitkara.png");
+}
+.icon_ITC {
+  content: url("../../assets/images/Sastra.png");
 }
 
 .light {

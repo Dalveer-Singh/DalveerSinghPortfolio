@@ -242,13 +242,15 @@ function Education() {
       university: "Shanmugha Arts, Science, Technology & Reserch Academy (SASTRA) University",
       course: "Master of Computer Applications - MCA",
       duration: "2017 - 2020",
-      logo: "logo",
+      logo: "icon_sastra",
+      // logo: "../",
+      // logo: "http://localhost:3000/DalveerSinghPortfolio/static/media/Sastra.3442802cca9c689b1730.png",
     },
     {
       university: "Chitkara University",
       course: "Bachelor of Computer Applications - BCA",
       duration: "2014 - 2027",
-      logo: "logo",
+      logo: "icon_chitkara",
     },
   ];
 
@@ -259,7 +261,7 @@ function Education() {
         <div key={index}>
           <table>
             <td>
-              <img src={edu.logo} alt="" className="company-logo" />
+              <img src={edu.logo} alt="" className={`company-logo ${edu.logo}`} />
             </td>
             <td>
               <h3>{edu.course}</h3>
