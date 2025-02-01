@@ -8,6 +8,7 @@
   padding: 16px;
   border-radius: 8px;
   /* margin: 16px 10px; */
+  margin-bottom: 60px;
 }
 
 .bgImage {
@@ -180,6 +181,7 @@
 
   .menu_material {
     gap: 3px;
+    margin-left: -14px;
 
     button {
       width: 40px; /* Change to desired size */
@@ -203,14 +205,12 @@
   }
 }
 
-#aboutSection {
-  .contactGrid {
-    img {
-      max-width: 40px;
-      background-color: #ccc;
-      padding: 5px;
-      margin-right: 10px;
-      border-radius: 3px;
-    }
+.contactGrid {
+  img {
+    max-width: 40px;
+    background-color: #ccc;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 3px;
   }
 }

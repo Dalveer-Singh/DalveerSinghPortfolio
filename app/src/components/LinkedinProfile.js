@@ -31,6 +31,7 @@ const ProfileApp = () => {
         <Education />
         <Skills />
         <Recommendations />
+        <div className="vspace"></div>
       </div>
     </Container>
   );
@@ -186,7 +187,7 @@ function About() {
         </a>
       </div>
 
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 }
@@ -230,7 +231,7 @@ function Experience() {
           <p className="description">{exp.description}</p>
         </div>
       ))}
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 }
@@ -256,17 +257,19 @@ function Education() {
       <h1>Education</h1>
       {education.map((edu, index) => (
         <div key={index}>
-          <td>
-            <img src={edu.logo} alt="" className="company-logo" />
-          </td>
-          <td>
-            <h1>{edu.course}</h1>
-            <p>{edu.university}</p>
-            <p>{edu.duration}</p>
-          </td>
+          <table>
+            <td>
+              <img src={edu.logo} alt="" className="company-logo" />
+            </td>
+            <td>
+              <h3>{edu.course}</h3>
+              <p>{edu.university}</p>
+              {/* <p>{edu.duration}</p> */}
+            </td>
+          </table>
         </div>
       ))}
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 }
@@ -335,7 +338,7 @@ function Recommendations() {
           <p className="text">{rec.text}</p>
         </div>
       ))}
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 }
