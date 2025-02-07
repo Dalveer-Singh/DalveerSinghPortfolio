@@ -47,6 +47,11 @@
   text-align: left;
 }
 
+.hr30 {
+  width: 30%;
+  margin: 1rem auto;
+}
+
 .company-logo {
   height: 56px;
   width: 56px;
@@ -54,6 +59,7 @@
   object-fit: contain;
   background-color: white;
   border-radius: 5px;
+  margin-right: 10px;
 }
 .icon_chitkara {
   content: url("../../assets/images/chitkara.png");
@@ -62,10 +68,12 @@
   content: url("../../assets/images/Sastra.png");
 }
 .icon_TCS {
-  content: url("../../assets/images/chitkara.png");
+  content: url("../../assets/images/TCS_logo.png");
+  padding: 6px;
 }
 .icon_ITC {
-  content: url("../../assets/images/Sastra.png");
+  content: url("../../assets/images/ITC_logo.svg");
+  padding: 2px;
 }
 
 .light {
@@ -229,4 +237,19 @@
     margin-right: 10px;
     border-radius: 3px;
   }
+}
+
+/* used for recomendations section */
+.text_truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transform: scaleY(1);
+
+  height: 2rem;
+  max-height: fit-content;
+}
+
+.color_primary {
+  color: #00ffff;
 }
