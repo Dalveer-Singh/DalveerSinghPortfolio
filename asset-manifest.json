@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.css": "/DalveerSinghPortfolio/static/css/main.a29fb353.css",
-    "main.js": "/DalveerSinghPortfolio/static/js/main.c3c40e61.js",
+    "main.css": "/DalveerSinghPortfolio/static/css/main.d056b387.css",
+    "main.js": "/DalveerSinghPortfolio/static/js/main.100c9c4c.js",
     "static/js/453.1407b060.chunk.js": "/DalveerSinghPortfolio/static/js/453.1407b060.chunk.js",
+    "static/media/Sastra.png": "/DalveerSinghPortfolio/static/media/Sastra.3442802cca9c689b1730.png",
     "static/media/actor.jpg": "/DalveerSinghPortfolio/static/media/actor.4384c55081560b7ff39f.jpg",
     "static/media/bgImage.jpg": "/DalveerSinghPortfolio/static/media/bgImage.2276ab1ca84bde05a4ff.jpg",
+    "static/media/ITC_logo.svg": "/DalveerSinghPortfolio/static/media/ITC_logo.cee0270c617c070cffee.svg",
+    "static/media/TCS_logo.png": "/DalveerSinghPortfolio/static/media/TCS_logo.21ffc7553d3c80320f43.png",
     "static/media/logo.svg": "/DalveerSinghPortfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "static/media/info.svg": "/DalveerSinghPortfolio/static/media/info.e1f24b87e2978100d603.svg",
     "static/media/skills_certificate.svg": "/DalveerSinghPortfolio/static/media/skills_certificate.42a5ab8f17c39079303a.svg",
@@ -12,12 +15,12 @@
     "static/media/work_tie.svg": "/DalveerSinghPortfolio/static/media/work_tie.98f061d5fdaaf208a26b.svg",
     "static/media/education.svg": "/DalveerSinghPortfolio/static/media/education.c88a98f90598327f5048.svg",
     "index.html": "/DalveerSinghPortfolio/index.html",
-    "main.a29fb353.css.map": "/DalveerSinghPortfolio/static/css/main.a29fb353.css.map",
-    "main.c3c40e61.js.map": "/DalveerSinghPortfolio/static/js/main.c3c40e61.js.map",
+    "main.d056b387.css.map": "/DalveerSinghPortfolio/static/css/main.d056b387.css.map",
+    "main.100c9c4c.js.map": "/DalveerSinghPortfolio/static/js/main.100c9c4c.js.map",
     "453.1407b060.chunk.js.map": "/DalveerSinghPortfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a29fb353.css",
-    "static/js/main.c3c40e61.js"
+    "static/css/main.d056b387.css",
+    "static/js/main.100c9c4c.js"
   ]
 }
