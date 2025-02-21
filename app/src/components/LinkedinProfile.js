@@ -169,7 +169,7 @@ function PersonalInfo() {
 function About() {
   return (
     <div id={`${menuHeading_info.replace(/\s+/g, "").toLowerCase()}Section`} className="section">
-      <h1>About</h1>
+      <h2 className="light">About</h2>
       <p>
         ☑️Master Degree in Computer Applications <br />
         ✅Proactive problem-solver <br />
@@ -218,6 +218,7 @@ function Experience() {
       className="experience-container section"
       id={`${menuHeading_experience.replace(/\s+/g, "").toLowerCase()}Section`}
     >
+      <h2 className="light">Experience</h2>
       {experiences.map((exp, index) => (
         <div key={index}>
           <table>
@@ -263,7 +264,7 @@ function Education() {
 
   return (
     <div className="section" id={`${menuHeading_education.replace(/\s+/g, "").toLowerCase()}Section`}>
-      <h1>Education</h1>
+      <h2 className="light">Education</h2>
       {education.map((edu, index) => (
         <div key={index}>
           <table>
@@ -286,6 +287,7 @@ function Education() {
 function Skills() {
   return (
     <div className="section" id={`${menuHeading_skills.replace(/\s+/g, "").toLowerCase()}Section`}>
+      <h2 className="light">Skills</h2>
       <li>Skills [Still Pending]</li>
       <li>Skills [Still Pending]</li>
       <li>Skills [Still Pending]</li>
@@ -346,7 +348,7 @@ function Recommendations() {
 
   return (
     <div className="section" id={`${menuHeading_recommendations.replace(/\s+/g, "").toLowerCase()}Section`}>
-      <h2 className="light">Recommendations:</h2>
+      <h2 className="light">Recommendations</h2>
       {recommendations.map((rec, index) => (
         <div key={index} className="recommendation-card" onClick={() => toggletruncate(rec.id)}>
           <h2 className="name">{rec.name}</h2>
